@@ -111,3 +111,14 @@ The app works locally and demonstrates real-time emotion classification from aud
 
 We attempted to deploy the Streamlit web application on both Streamlit Cloud and Hugging Face Spaces by dynamically downloading the trained model and label encoder at runtime using direct URLs from Hugging Face (urllib.request.urlretrieve) and also tested using Google Drive with gdown. While the approach worked seamlessly in local environments, the hosted versions failed due to limitations such as download timeouts, file size restrictions, and compatibility issues with loading .keras model files in cloud environments. As a result, the final app is not hosted online, but it runs successfully when executed locally using streamlit run app.py. 
 
+## CLI Prediction Script (predictor.py)
+This script allows emotion prediction directly from the command line using the trained model.
+
+Usage:
+Single file:
+python predictor.py --file path/to/audio.wav
+
+Folder of files:
+python predictor.py --folder path/to/folder/
+
+It loads the model and label encoder, extracts log-Mel spectrograms, and prints the predicted emotion with confidence for each .wav file.
