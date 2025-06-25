@@ -7,14 +7,25 @@ import tempfile
 import os
 
 import gdown
-
+"""
 MODEL_PATH = "emotion_cnn_mel.keras"
 
 with st.spinner("Downloading model..."):
     gdown.download("https://drive.google.com/uc?id=1onb8BIr7D6-b6Pnyp6rDn_JXcJOmBe5W", MODEL_PATH, quiet=False)
+"""
+import urllib.request
+
+MODEL_URL = "https://huggingface.co/KV4661/Emotional_classifier/resolve/main/emotional_cnn_mel.keras"
+LABEL_URL = "https://huggingface.co/KV4661/Emotional_classifier/resolve/main/label_encoder.pkl"
+
+MODEL_PATH = "emotion_cnn_mel.keras"
+LABEL_PATH = "label_encoder.pkl"
+
+urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+urllib.request.urlretrieve(LABEL_URL, LABEL_PATH)
 
 model = tf.keras.models.load_model(MODEL_PATH)
-le = joblib.load("label_encoder.pkl")
+le = joblib.load(LABEL_PATH)
 
 SAMPLE_RATE = 22050
 DURATION = 3
