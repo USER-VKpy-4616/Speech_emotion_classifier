@@ -89,9 +89,25 @@ Training
 - Optimizer: Adam (lr=0.0005)
 - Loss: Categorical crossentropy
 - Early stopping and learning rate reduction callbacks were used
-
+  
 Evaluation
 - Final Accuracy: ~77.26%
 - Macro F1 Score: ~76.88%
 
 This model was used in the final deployment.
+
+## Streamlit Web App
+The Streamlit app provides a simple web interface to classify emotions from speech.
+
+Key Features:
+- Accepts .wav audio file uploads
+- Extracts log-Mel spectrograms from the audio
+- Loads the trained CNN model and label encoder
+- Predicts and displays the emotion label (e.g., happy, angry, calm)
+
+Run locally with:
+streamlit run app.py
+The app works locally and demonstrates real-time emotion classification from audio input.
+
+We attempted to deploy the Streamlit web application on both Streamlit Cloud and Hugging Face Spaces by dynamically downloading the trained model and label encoder at runtime using direct URLs from Hugging Face (urllib.request.urlretrieve) and also tested using Google Drive with gdown. While the approach worked seamlessly in local environments, the hosted versions failed due to limitations such as download timeouts, file size restrictions, and compatibility issues with loading .keras model files in cloud environments. As a result, the final app is not hosted online, but it runs successfully when executed locally using streamlit run app.py. 
+
