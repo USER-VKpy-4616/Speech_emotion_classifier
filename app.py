@@ -11,7 +11,7 @@ import gdown
 MODEL_PATH = "emotion_cnn_mel.keras"
 if not os.path.exists(MODEL_PATH):
     with st.spinner("Downloading model..."):
-        gdown.download("", MODEL_PATH, quiet=False)
+        gdown.download("https://drive.google.com/file/d/1onb8BIr7D6-b6Pnyp6rDn_JXcJOmBe5W/view?usp=sharing", MODEL_PATH, quiet=False)
 
 model = tf.keras.models.load_model(MODEL_PATH)
 le = joblib.load("label_encoder.pkl")
