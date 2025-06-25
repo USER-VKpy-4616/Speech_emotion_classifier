@@ -1,0 +1,7 @@
+streamlit
+tensorflow
+librosa
+scikit-learn
+joblib
+matplotlib
+gdown
