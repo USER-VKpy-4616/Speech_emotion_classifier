@@ -109,7 +109,11 @@ Run locally with:
 streamlit run app.py
 The app works locally and demonstrates real-time emotion classification from audio input.
 
-We attempted to deploy the Streamlit web application on both Streamlit Cloud and Hugging Face Spaces by dynamically downloading the trained model and label encoder at runtime using direct URLs from Hugging Face (urllib.request.urlretrieve) and also tested using Google Drive with gdown. While the approach worked seamlessly in local environments, the hosted versions failed due to limitations such as download timeouts, file size restrictions, and compatibility issues with loading .keras model files in cloud environments. As a result, the final app is not hosted online, but it runs successfully when executed locally using streamlit run app.py. 
+We attempted to deploy the Streamlit web application on both Streamlit Cloud and Hugging Face Spaces by dynamically downloading the trained model and label encoder at runtime using direct URLs from Hugging Face (urllib.request.urlretrieve) and also tested using Google Drive with gdown. While the approach worked seamlessly in local environments, the hosted versions failed due to limitations such as download timeouts, file size restrictions, and compatibility issues with loading .keras model files in cloud environments. As a result, the final app is not hosted online( Update : Hosted online), but it runs successfully when executed locally using streamlit run app.py. 
+
+## Live Demo
+Finally sorted all the issues and got it online.
+You can try it over here : https://huggingface.co/spaces/KV4661/Speech_emotional_classifier
 
 ## CLI Prediction Script (predictor.py)
 This script allows emotion prediction directly from the command line using the trained model.
